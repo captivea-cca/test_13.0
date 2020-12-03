@@ -33,8 +33,8 @@
                         </group>
                     </group>
                     <notebook>
-                        <page string="Modules" name="estimate_lines_page">
-                            <field name="estimate_lines">
+                        <page string="Modules" name="line_ids_page">
+                            <field name="line_ids">
                                 <tree editable="bottom">
                                     <field name="module_id"/>
                                     <field name="price"/>
