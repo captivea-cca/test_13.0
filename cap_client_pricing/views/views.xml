@@ -65,7 +65,7 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="est_user_range">
+                        <field name="user_range_ids">
                             <tree editable="bottom">
                                 <field name="num_users"/>
                                 <field name="num_hours"/>
