@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Client Pricing",
+    'name': "Cap Client Pricing app",
 
     'summary': """
         Client pricing app and web page, estimates Odoo costs given
         by selected modules and number of users.""",
 
-    'author': "Chandler Calderon <chandler.calderon@captivea.com>",
-    'website': "http://www.captivea.us",
-
+    'author': 'Captivea',
+    'website': 'www.captivea.us',
+    'version': '13.0.1.0.0',
     'category': 'Web',
-    'version': '0.1',
+
     'application': True,
 
     'depends': ['base', 'website'],

@@ -1,8 +1,8 @@
 <odoo>
 
-    <record model="ir.ui.view" id="client_pricing_estimate_tree">
+    <record model="ir.ui.view" id="cap_client_pricing_estimate_tree">
         <field name="name">client.pricing.estimate.tree</field>
-        <field name="model">client_pricing.pricing</field>
+        <field name="model">cap_client_pricing.pricing</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
@@ -10,9 +10,9 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="client_pricing_estimate_form">
+    <record model="ir.ui.view" id="cap_client_pricing_estimate_form">
         <field name="name">client.pricing.estimate.form</field>
-        <field name="model">client_pricing.pricing</field>
+        <field name="model">cap_client_pricing.pricing</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
@@ -47,9 +47,9 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="client_pricing_module_tree">
+    <record model="ir.ui.view" id="cap_client_pricing_module_tree">
         <field name="name">client.pricing.module.tree</field>
-        <field name="model">client_pricing.module</field>
+        <field name="model">cap_client_pricing.module</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
@@ -57,9 +57,9 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="client_pricing_module_form">
+    <record model="ir.ui.view" id="cap_client_pricing_module_form">
         <field name="name">client.pricing.module.form</field>
-        <field name="model">client_pricing.module</field>
+        <field name="model">cap_client_pricing.module</field>
         <field name="arch" type="xml">
             <form>
                 <sheet>
@@ -77,25 +77,25 @@
         </field>
     </record>
 
-    <record model="ir.actions.act_window" id="client_pricing.action_window">
+    <record model="ir.actions.act_window" id="cap_client_pricing.action_window">
         <field name="name">Client Pricing</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">client_pricing.pricing</field>
+        <field name="res_model">cap_client_pricing.pricing</field>
         <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="client_pricing_estimate_tree"/>
+        <field name="view_id" ref="cap_client_pricing_estimate_tree"/>
     </record>
 
-    <record model="ir.actions.act_window" id="client_pricing.action_window_2">
+    <record model="ir.actions.act_window" id="cap_client_pricing.action_window_2">
         <field name="name">modules</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">client_pricing.module</field>
+        <field name="res_model">cap_client_pricing.module</field>
         <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="client_pricing_module_tree"/>
+        <field name="view_id" ref="cap_client_pricing_module_tree"/>
     </record>
 
-    <menuitem name="Client Pricing" id="client_pricing.menu_root"/>
+    <menuitem name="Client Pricing" id="cap_client_pricing.menu_root"/>
 
-    <menuitem name="Pricing" id="client_pricing.menu_1" parent="client_pricing.menu_root" action="client_pricing.action_window"/>
-    <menuitem name="Modules" id="client_pricing.menu_2" parent="client_pricing.menu_root" action="client_pricing.action_window_2"/>
+    <menuitem name="Pricing" id="cap_client_pricing.menu_1" parent="cap_client_pricing.menu_root" action="cap_client_pricing.action_window"/>
+    <menuitem name="Modules" id="cap_client_pricing.menu_2" parent="cap_client_pricing.menu_root" action="cap_client_pricing.action_window_2"/>
 
 </odoo>
