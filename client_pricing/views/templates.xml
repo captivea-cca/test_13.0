@@ -1,0 +1,116 @@
+<odoo>
+    <data>
+
+        <record id="pricing_form" model="website.menu">
+            <field name="name">Client Pricing</field>
+            <field name="url">/client_pricing</field>
+            <field name="parent_id" ref="website.main_menu"/>
+        </record>
+
+        <template id="pricing_template">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="oe_structure">
+                        <div class="container">
+                            <form role="form" action="/client_pricing/submitted" method="POST">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <div class="form-group">
+                                    <t t-foreach="modules" t-as="module">
+                                        <p>
+                                            <t t-esc="module.name"/>
+                                        </p>
+                                        <input type="checkbox" t-attf-name="module{{ (module_index) }}" t-att-value="module.id" id="module.id" class="form-control"/>
+                                    </t>
+                                </div>
+                                <div class="form-group">
+                                    <label for="num_users" class="control-label">Number of Users</label>
+                                    <input type="text" name="num_users" t-att-value="num_users" id="num_users" class="form-control" placeholder="0" required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="company_name" class="control-label">Company Name</label>
+                                    <input type="text" name="company_name" t-att-value="company_name" id="company_name" class="form-control" placeholder="Company" required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone_number" class="control-label">Phone Number</label>
+                                    <input type="text" name="phone_number" t-att-value="phone_number" id="phone_number" class="form-control" placeholder="(123) 456-7890" required="required"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="control-label">Email</label>
+                                    <input type="text" name="email" t-att-value="email" id="email" class="form-control" placeholder="123@email.com" required="required"/>
+                                </div>
+                                <div class="clearfix oe_login_buttons">
+                                    <button type="submit" class="btn btn-primary pull-left">Estimate Cost</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="submitted">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="oe_structure">
+                        <div class="container">
+                            <form role="form" action="/client_pricing/submitted" method="POST">
+                                <div class="form-group">
+                                    <h2>First Year</h2>
+                                    <p>
+                                        <label for="pricing.module_hours" class="control-label">Module Hours</label>
+                                        <span t-field="pricing.module_hours"/>
+                                    </p>
+                                    <p>
+                                        <label for="pricing.license_cost" class="control-label">Odoo License Cost</label>
+                                        <span t-field="pricing.license_cost"/>
+                                    </p>
+                                    <p>
+                                        <label for="pricing.implemen_cost" class="control-label">Implementation Cost</label>
+                                        <span t-field="pricing.implemen_cost"/>
+                                    </p>
+                                    <p>
+                                        <label for="pricing.year_1_cost" class="control-label">Total</label>
+                                        <span t-field="pricing.year_1_cost"/>
+                                    </p>
+                                </div>
+                                <div class="form-group">
+                                    <h2>Second Year</h2>
+                                    <p>
+                                        <label for="pricing.license_cost" class="control-label">Odoo License Cost</label>
+                                        <span t-esc="pricing.license_cost"/>
+                                    </p>
+                                    <p>
+                                        <label for="pricing.mainte_cost" class="control-label">Maintenance and Support Cost</label>
+                                        <span t-field="pricing.mainte_cost"/>
+                                    </p>
+                                    <p>
+                                        <label for="pricing.year_2_cost" class="control-label">Total</label>
+                                        <span t-field="pricing.year_2_cost"/>
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="contact_us">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="oe_structure">
+                        <div class="container">
+                            <br/>
+                            <h2>Contact Us</h2>
+                            <br/>
+                            <p>Email: 123@email.com</p>
+                            <p>Phone number: (123) 123-1231</p>
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

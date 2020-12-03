@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_client_pricing_pricing,client_pricing.pricing,model_client_pricing_pricing,base.group_user,1,1,1,1
+access_client_pricing_line,client_pricing.line,model_client_pricing_line,base.group_user,1,1,1,1
+access_client_pricing_module,client_pricing.modules,model_client_pricing_module,base.group_user,1,1,1,1
+access_client_pricing_user_range,client_pricing.user_range,model_client_pricing_user_range,base.group_user,1,1,1,1

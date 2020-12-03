@@ -1,0 +1,101 @@
+<odoo>
+
+    <record model="ir.ui.view" id="client_pricing_estimate_tree">
+        <field name="name">client.pricing.estimate.tree</field>
+        <field name="model">client_pricing.pricing</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="client_pricing_estimate_form">
+        <field name="name">client.pricing.estimate.form</field>
+        <field name="model">client_pricing.pricing</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="company_name"/>
+                            <field name="phone_number"/>
+                            <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="num_users"/>
+                            <field name="module_hours"/>
+                            <field name="license_cost"/>
+                            <field name="implemen_cost"/>
+                            <field name="mainte_cost"/>
+                            <field name="year_1_cost"/>
+                            <field name="year_2_cost"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Modules" name="estimate_lines_page">
+                            <field name="estimate_lines">
+                                <tree editable="bottom">
+                                    <field name="module_id"/>
+                                    <field name="price"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="client_pricing_module_tree">
+        <field name="name">client.pricing.module.tree</field>
+        <field name="model">client_pricing.module</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="client_pricing_module_form">
+        <field name="name">client.pricing.module.form</field>
+        <field name="model">client_pricing.module</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="est_user_range">
+                            <tree editable="bottom">
+                                <field name="num_users"/>
+                                <field name="num_hours"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="client_pricing.action_window">
+        <field name="name">Client Pricing</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">client_pricing.pricing</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="client_pricing_estimate_tree"/>
+    </record>
+
+    <record model="ir.actions.act_window" id="client_pricing.action_window_2">
+        <field name="name">modules</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">client_pricing.module</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="client_pricing_module_tree"/>
+    </record>
+
+    <menuitem name="Client Pricing" id="client_pricing.menu_root"/>
+
+    <menuitem name="Pricing" id="client_pricing.menu_1" parent="client_pricing.menu_root" action="client_pricing.action_window"/>
+    <menuitem name="Modules" id="client_pricing.menu_2" parent="client_pricing.menu_root" action="client_pricing.action_window_2"/>
+
+</odoo>
