@@ -57,10 +57,6 @@
                                 <div class="form-group">
                                     <h2>First Year</h2>
                                     <p>
-                                        <label for="pricing.module_hours" class="control-label">Module Hours</label>
-                                        <span t-field="pricing.module_hours"/>
-                                    </p>
-                                    <p>
                                         <label for="pricing.license_cost" class="control-label">Odoo License Cost</label>
                                         <span t-field="pricing.license_cost"/>
                                     </p>
