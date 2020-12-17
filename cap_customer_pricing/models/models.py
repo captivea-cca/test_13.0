@@ -69,8 +69,10 @@ class CustomerPricingLines(models.Model):
             num_users = record.estimate_id.num_users
             user_ranges = record.module_id.user_range_ids
             price = 0
-
+            _logger.warning("Outside user range for loop")
             for user_range in user_ranges:
+                _logger.warning(user_ranges)
+                _logger.warning(user_range.num_hours)
                 if num_users >= user_range.num_users:
                     price = user_range.num_hours
             record.price = price
