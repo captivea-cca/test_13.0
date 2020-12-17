@@ -3,7 +3,7 @@
 from odoo import models, fields, api
 
 
-class ClientPricing(models.Model):
+class CustomerPricing(models.Model):
     _name = 'cap_customer_pricing.pricing'
 
     name = fields.Char('Name')
@@ -46,7 +46,7 @@ class ClientPricing(models.Model):
                 })
 
 
-class ClientPricingLines(models.Model):
+class CustomerPricingLines(models.Model):
     _name = 'cap_customer_pricing.line'
 
     estimate_id = fields.Many2one('cap_customer_pricing.pricing', string='Estimate id')
@@ -66,7 +66,7 @@ class ClientPricingLines(models.Model):
             record.price = price
 
 
-class ClientModule(models.Model):
+class CustomerModule(models.Model):
     _name = 'cap_customer_pricing.module'
 
     user_range_ids = fields.One2many('cap_customer_pricing.user_range', 'module_id', string='module id')
@@ -74,7 +74,7 @@ class ClientModule(models.Model):
 
 
 
-class ClientUserRange(models.Model):
+class CustomerUserRange(models.Model):
     _name = 'cap_customer_pricing.user_range'
 
     module_id = fields.Many2one('cap_customer_pricing.module', string='Estimate module')
