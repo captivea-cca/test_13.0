@@ -63,7 +63,7 @@ class CustomerPricingLines(models.Model):
     def _compute_price(self):
         for record in self:
             num_users = record.estimate_id.num_users
-            user_ranges = record.module_id.user_range_ids
+            user_ranges = record.env['cap_customer_pricing.user_range'].search([])
             price = 0
             _logger.warning("Outside user range for loop")
             _logger.warning(record.module_id)
