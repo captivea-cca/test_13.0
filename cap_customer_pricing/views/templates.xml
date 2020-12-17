@@ -53,38 +53,36 @@
                 <div id="wrap">
                     <div class="oe_structure">
                         <div class="container">
-                            <form role="form" action="/customer_pricing/submitted" method="GET">
-                                <div class="form-group">
-                                    <h2>First Year</h2>
-                                    <p>
-                                        <label for="pricing.license_cost" class="control-label">Odoo License Cost</label>
-                                        <span t-field="pricing.license_cost"/>
-                                    </p>
-                                    <p>
-                                        <label for="pricing.implemen_cost" class="control-label">Implementation Cost</label>
-                                        <span t-field="pricing.implemen_cost"/>
-                                    </p>
-                                    <p>
-                                        <label for="pricing.year_1_cost" class="control-label">Total</label>
-                                        <span t-field="pricing.year_1_cost"/>
-                                    </p>
-                                </div>
-                                <div class="form-group">
-                                    <h2>Second Year</h2>
-                                    <p>
-                                        <label for="pricing.license_cost" class="control-label">Odoo License Cost</label>
-                                        <span t-esc="pricing.license_cost"/>
-                                    </p>
-                                    <p>
-                                        <label for="pricing.mainte_cost" class="control-label">Maintenance and Support Cost</label>
-                                        <span t-field="pricing.mainte_cost"/>
-                                    </p>
-                                    <p>
-                                        <label for="pricing.year_2_cost" class="control-label">Total</label>
-                                        <span t-field="pricing.year_2_cost"/>
-                                    </p>
-                                </div>
-                            </form>
+                            <div class="form-group">
+                                <h2>First Year</h2>
+                                <p>
+                                    <label for="pricing.license_cost" class="control-label">Odoo License Cost</label>
+                                    <span t-field="pricing.license_cost"/>
+                                </p>
+                                <p>
+                                    <label for="pricing.implemen_cost" class="control-label">Implementation Cost</label>
+                                    <span t-field="pricing.implemen_cost"/>
+                                </p>
+                                <p>
+                                    <label for="pricing.year_1_cost" class="control-label">Total</label>
+                                    <span t-field="pricing.year_1_cost"/>
+                                </p>
+                            </div>
+                            <div class="form-group">
+                                <h2>Second Year</h2>
+                                <p>
+                                    <label for="pricing.license_cost" class="control-label">Odoo License Cost</label>
+                                    <span t-esc="pricing.license_cost"/>
+                                </p>
+                                <p>
+                                    <label for="pricing.mainte_cost" class="control-label">Maintenance and Support Cost</label>
+                                    <span t-field="pricing.mainte_cost"/>
+                                </p>
+                                <p>
+                                    <label for="pricing.year_2_cost" class="control-label">Total</label>
+                                    <span t-field="pricing.year_2_cost"/>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
