@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-
+import logging
+_logger = logging.getLogger(__name__)
 
 class CustomerPricing(models.Model):
     _name = 'cap_customer_pricing.pricing'
@@ -25,7 +26,14 @@ class CustomerPricing(models.Model):
         for record in self:
             lines = record.line_ids
             total = 0
+            _logger.debug("Outside line for loop")
+            _logger.debug(lines)
+
             for line in lines:
+                _logger.debug("Inside line for loop")
+                _logger.debug(line.estimate_id)
+                _logger.debug(line.module_id)
+                _logger.debug(line.price)
                 total += line.price
             record.module_hours = total
 

@@ -13,7 +13,7 @@
 
     'application': True,
 
-    'depends': ['base', 'website'],
+    'depends': ['base', 'website', 'marketing_automation'],
 
     'data': [
         'security/ir.model.access.csv',
