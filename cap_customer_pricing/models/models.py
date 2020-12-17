@@ -4,14 +4,14 @@ from odoo import models, fields, api
 
 
 class ClientPricing(models.Model):
-    _name = 'cap_client_pricing.pricing'
+    _name = 'cap_customer_pricing.pricing'
 
     name = fields.Char('Name')
     company_name = fields.Char('Company Name')
     phone_number = fields.Char('Phone Number')
     email = fields.Char('Email')
     num_users = fields.Integer('Number of Users')
-    line_ids = fields.One2many('cap_client_pricing.line', 'estimate_id', string='Estimate Lines')
+    line_ids = fields.One2many('cap_customer_pricing.line', 'estimate_id', string='Estimate Lines')
     module_hours = fields.Integer('Module Hours', compute='_compute_hours', store=True)
     license_cost = fields.Integer('License Cost', compute='_compute_costs', store=True)
     implemen_cost = fields.Integer('Implementation Cost')
@@ -47,10 +47,10 @@ class ClientPricing(models.Model):
 
 
 class ClientPricingLines(models.Model):
-    _name = 'cap_client_pricing.line'
+    _name = 'cap_customer_pricing.line'
 
-    estimate_id = fields.Many2one('cap_client_pricing.pricing', string='Estimate id')
-    module_id = fields.Many2one('cap_client_pricing.module', string='modules')
+    estimate_id = fields.Many2one('cap_customer_pricing.pricing', string='Estimate id')
+    module_id = fields.Many2one('cap_customer_pricing.module', string='modules')
     price = fields.Integer(compute='_compute_price')
 
     @api.depends('estimate_id.num_users', 'module_id.user_range_ids')
@@ -67,16 +67,16 @@ class ClientPricingLines(models.Model):
 
 
 class ClientModule(models.Model):
-    _name = 'cap_client_pricing.module'
+    _name = 'cap_customer_pricing.module'
 
-    user_range_ids = fields.One2many('cap_client_pricing.user_range', 'module_id', string='module id')
+    user_range_ids = fields.One2many('cap_customer_pricing.user_range', 'module_id', string='module id')
     name = fields.Char()
 
 
 
 class ClientUserRange(models.Model):
-    _name = 'cap_client_pricing.user_range'
+    _name = 'cap_customer_pricing.user_range'
 
-    module_id = fields.Many2one('cap_client_pricing.module', string='Estimate module')
+    module_id = fields.Many2one('cap_customer_pricing.module', string='Estimate module')
     num_users = fields.Integer()
     num_hours = fields.Integer()

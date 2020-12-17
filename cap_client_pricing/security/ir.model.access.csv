@@ -1,5 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_cap_client_pricing_pricing,cap_client_pricing.pricing,model_cap_client_pricing_pricing,base.group_user,1,1,1,1
-access_cap_client_pricing_line,cap_client_pricing.line,model_cap_client_pricing_line,base.group_user,1,1,1,1
-access_cap_client_pricing_module,cap_client_pricing.modules,model_cap_client_pricing_module,base.group_user,1,1,1,1
-access_cap_client_pricing_user_range,cap_client_pricing.user_range,model_cap_client_pricing_user_range,base.group_user,1,1,1,1
