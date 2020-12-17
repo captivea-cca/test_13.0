@@ -31,11 +31,7 @@ class CustomerPricing(models.Model):
 
             for line in lines:
                 _logger.warning("Inside line for loop")
-                _logger.warning(line.estimate_id)
-                _logger.warning(line.module_id)
-                _logger.warning(line._compute_price())
                 _logger.warning(line.price)
-                _logger.warning(line.module_id)
                 total += line.price
             record.module_hours = total
 
@@ -71,8 +67,10 @@ class CustomerPricingLines(models.Model):
             price = 0
             _logger.warning("Outside user range for loop")
             for user_range in user_ranges:
+                _logger.warning("Inside user range for loop")
                 _logger.warning(user_ranges)
                 _logger.warning(user_range.num_hours)
+                _logger.warning("End of user range for loop")
                 if num_users >= user_range.num_users:
                     price = user_range.num_hours
             record.price = price
