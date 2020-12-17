@@ -26,14 +26,14 @@ class CustomerPricing(models.Model):
         for record in self:
             lines = record.line_ids
             total = 0
-            _logger.debug("Outside line for loop")
-            _logger.debug(lines)
+            _logger.warning("Outside line for loop")
+            _logger.warning(lines)
 
             for line in lines:
-                _logger.debug("Inside line for loop")
-                _logger.debug(line.estimate_id)
-                _logger.debug(line.module_id)
-                _logger.debug(line.price)
+                _logger.warning("Inside line for loop")
+                _logger.warning(line.estimate_id)
+                _logger.warning(line.module_id)
+                _logger.warning(line.price)
                 total += line.price
             record.module_hours = total
 
