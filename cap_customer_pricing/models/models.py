@@ -26,13 +26,14 @@ class CustomerPricing(models.Model):
         for record in self:
             lines = record.line_ids
             total = 0
-            _logger.warning("Outside line for loop")
-            _logger.warning(lines)
 
             for line in lines:
                 _logger.warning("Inside line for loop")
                 _logger.warning(line.price)
                 total += line.price
+
+            _logger.warning("Compute hours total")
+            _logger.warning(total)
             record.module_hours = total
 
     @api.depends('module_hours')
@@ -64,22 +65,13 @@ class CustomerPricingLines(models.Model):
         for record in self:
             num_users = record.estimate_id.num_users
             user_ranges = record.env['cap_customer_pricing.user_range'].search([])
-            price = 0
-            _logger.warning("Outside user range for loop")
-            _logger.warning(record.module_id)
-            _logger.warning(user_ranges)
-            for i in record.env['cap_customer_pricing.user_range'].search([]):
-                _logger.warning("Inside ENV USER RANGE for loop")
-                _logger.warning(i)
-                _logger.warning(i.num_hours)
 
+            price = 0
             for user_range in user_ranges:
-                _logger.warning("Inside user range for loop")
-                _logger.warning(user_ranges)
-                _logger.warning(user_range.num_hours)
-                _logger.warning("End of user range for loop")
                 if num_users >= user_range.num_users:
                     price = user_range.num_hours
+            _logger.warning("COMPUTE PRICE")
+            _logger.warning(price)
             record.price = price
 
 
