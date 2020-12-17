@@ -66,9 +66,13 @@ class CustomerPricingLines(models.Model):
             user_ranges = record.module_id.user_range_ids
             price = 0
             _logger.warning("Outside user range for loop")
-            # _logger.warning(record.module_id)
-            # _logger.warning(record.user_range_ids)
-            # _logger.warning(user_ranges)
+            _logger.warning(record.module_id)
+            _logger.warning(user_ranges)
+            for i in env['cap_customer_pricing.module'].search([]):
+                _logger.warning("Inside ENV USER RANGE for loop")
+                _logger.warning(i)
+                _logger.warning(i.num_hours)
+
             for user_range in user_ranges:
                 _logger.warning("Inside user range for loop")
                 _logger.warning(user_ranges)
