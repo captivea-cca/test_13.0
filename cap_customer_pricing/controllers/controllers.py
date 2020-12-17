@@ -38,8 +38,7 @@ class ClientPricingWeb(http.Controller):
                 request.env['cap_customer_pricing.line'].sudo().create(
                     estimate_line)
 
-        return request.redirect('/customer_pricing/results', {
-        })
+        return request.redirect('/customer_pricing/results')
 
     @http.route('/customer_pricing/contact_us', type="http", auth='public', website=True)
     def pricing_contact(self, **kw):
