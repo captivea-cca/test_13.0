@@ -16,8 +16,8 @@ class ClientPricingWeb(http.Controller):
     @http.route('/customer_pricing/submitted', type="http", auth='public',
         website=True)
     def pricing_submitted(self, **kw):
-        if int(kw['num_users']) > 50:
-            return request.redirect('/customer_pricing/contact_us')
+        # if int(kw['num_users']) > 50:
+        #     return request.redirect('/customer_pricing/contact_us')
 
         pricing = {
             'name': kw['company_name'],
