@@ -33,7 +33,9 @@ class CustomerPricing(models.Model):
                 _logger.warning("Inside line for loop")
                 _logger.warning(line.estimate_id)
                 _logger.warning(line.module_id)
+                _logger.warning(line._compute_price())
                 _logger.warning(line.price)
+                _logger.warning(line.module_id)
                 total += line.price
             record.module_hours = total
 
