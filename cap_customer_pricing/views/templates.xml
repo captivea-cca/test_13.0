@@ -53,6 +53,7 @@
                 <div id="wrap">
                     <div class="oe_structure">
                         <div class="container">
+                            <form role="form" action="/customer_pricing/submitted" method="GET">
                                 <div class="form-group">
                                     <h2>First Year</h2>
                                     <p>
@@ -83,6 +84,7 @@
                                         <span t-field="pricing.year_2_cost"/>
                                     </p>
                                 </div>
+                            </form>
                         </div>
                     </div>
                 </div>
