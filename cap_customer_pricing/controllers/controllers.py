@@ -7,7 +7,7 @@ from odoo.http import request
 class ClientPricingWeb(http.Controller):
 
     @http.route('/customer_pricing', type="http", auth='public', website=True)
-    def pricing_webform(self, **kw):
+    def pricing_webform(self):
         Modules = http.request.env['cap_customer_pricing.module']
         return http.request.render('cap_customer_pricing.pricing_template', {
             'modules': Modules.sudo().search([])
@@ -15,9 +15,9 @@ class ClientPricingWeb(http.Controller):
 
     @http.route('/customer_pricing/submitted', type="http", auth='public',
         website=True)
-    def pricing_submitted(self, **kw):
-        # if int(kw['num_users']) > 50:
-        #     return request.redirect('/customer_pricing/contact_us')
+    def pricing_submitted(self, kw):
+        if int(kw['num_users']) > 50:
+            return request.redirect('/customer_pricing/contact_us')
 
         pricing = {
             'name': kw['company_name'],
