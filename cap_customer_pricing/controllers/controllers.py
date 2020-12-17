@@ -13,8 +13,7 @@ class ClientPricingWeb(http.Controller):
             'modules': Modules.sudo().search([])
         })
 
-    @http.route('/customer_pricing/submitted', type="http", auth='public',
-        website=True)
+    @http.route('/customer_pricing/submitted', type="http", auth='public', website=True)
     def pricing_submitted(self, **kw):
         if int(kw['num_users']) > 50:
             return request.redirect('/customer_pricing/contact_us')
@@ -39,12 +38,18 @@ class ClientPricingWeb(http.Controller):
                 request.env['cap_customer_pricing.line'].sudo().create(
                     estimate_line)
 
-        return request.render('cap_customer_pricing.submitted', {
-            'pricing': request.env['cap_customer_pricing.pricing'].sudo().browse(
+        return request.redirect('/customer_pricing/results', {
+            "pricing_save_id": request.env['cap_customer_pricing.pricing'].sudo().browse(
                 pricing_saved.id)
         })
 
-    @http.route('/customer_pricing/contact_us', type="http", auth='public',
-        website=True)
+    @http.route('/customer_pricing/contact_us', type="http", auth='public', website=True)
     def pricing_contact(self, **kw):
         return http.request.render('cap_customer_pricing.contact_us', {})
+
+    @http.route('/customer_pricing/customer_pricing/results', type="http", auth='public', website=True)
+    def pricing_result(self, pricing_saved_id):
+
+        return request.render('cap_customer_pricing.results', {
+            'pricing': pricing_saved_id
+        })
