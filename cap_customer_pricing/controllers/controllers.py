@@ -46,7 +46,7 @@ class ClientPricingWeb(http.Controller):
         return http.request.render('cap_customer_pricing.contact_us', {})
 
     @http.route('/customer_pricing/customer_pricing/results', type="http", auth='public', website=True)
-    def pricing_result(self, pricing_save_id):
+    def pricing_result(self, pricing_saved_id):
 
         return request.render('cap_customer_pricing.results', {
             'pricing': pricing_saved_id
