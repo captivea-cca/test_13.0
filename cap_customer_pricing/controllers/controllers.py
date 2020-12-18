@@ -13,7 +13,7 @@ class ClientPricingWeb(http.Controller):
             'modules': Modules.sudo().search([])
         })
 
-    @http.route('/customer_pricing/submitted', type="http", auth='public', methods=['POST'] website=True)
+    @http.route('/customer_pricing/submitted', type="http", auth='public', methods=['POST'], website=True)
     def pricing_submitted(self, **kwargs):
         if int(kwargs['num_users']) > 50:
             return request.redirect('/customer_pricing/contact_us')
