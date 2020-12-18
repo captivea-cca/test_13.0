@@ -1,7 +1,7 @@
 <odoo>
 
     <record model="ir.ui.view" id="cap_customer_pricing_estimate_tree">
-        <field name="name">client.pricing.estimate.tree</field>
+        <field name="name">customer.pricing.estimate.tree</field>
         <field name="model">cap_customer_pricing.pricing</field>
         <field name="arch" type="xml">
             <tree>
@@ -11,7 +11,7 @@
     </record>
 
     <record model="ir.ui.view" id="cap_customer_pricing_estimate_form">
-        <field name="name">client.pricing.estimate.form</field>
+        <field name="name">customer.pricing.estimate.form</field>
         <field name="model">cap_customer_pricing.pricing</field>
         <field name="arch" type="xml">
             <form>
@@ -48,7 +48,7 @@
     </record>
 
     <record model="ir.ui.view" id="cap_customer_pricing_module_tree">
-        <field name="name">client.pricing.module.tree</field>
+        <field name="name">customer.pricing.module.tree</field>
         <field name="model">cap_customer_pricing.module</field>
         <field name="arch" type="xml">
             <tree>
@@ -58,7 +58,7 @@
     </record>
 
     <record model="ir.ui.view" id="cap_customer_pricing_module_form">
-        <field name="name">client.pricing.module.form</field>
+        <field name="name">customer.pricing.module.form</field>
         <field name="model">cap_customer_pricing.module</field>
         <field name="arch" type="xml">
             <form>
@@ -78,7 +78,7 @@
     </record>
 
     <record model="ir.actions.act_window" id="cap_customer_pricing.action_window">
-        <field name="name">Client Pricing</field>
+        <field name="name">Customer Pricing</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">cap_customer_pricing.pricing</field>
         <field name="view_mode">tree,form</field>
@@ -93,7 +93,7 @@
         <field name="view_id" ref="cap_customer_pricing_module_tree"/>
     </record>
 
-    <menuitem name="Client Pricing" id="cap_customer_pricing.menu_root"/>
+    <menuitem name="Customer Pricing" id="cap_customer_pricing.menu_root"/>
 
     <menuitem name="Pricing" id="cap_customer_pricing.menu_1" parent="cap_customer_pricing.menu_root" action="cap_customer_pricing.action_window"/>
     <menuitem name="Modules" id="cap_customer_pricing.menu_2" parent="cap_customer_pricing.menu_root" action="cap_customer_pricing.action_window_2"/>
