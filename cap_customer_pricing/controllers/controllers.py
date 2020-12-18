@@ -38,15 +38,15 @@ class ClientPricingWeb(http.Controller):
                 request.env['cap_customer_pricing.line'].sudo().create(
                     estimate_line)
 
-        return request.redirect('/customer_pricing/results')
+        return request.redirect('/customer_pricing/results/%d' % (pricing_saved.id))
 
     @http.route('/customer_pricing/contact_us', type="http", auth='public', website=True)
-    def pricing_contact(self, **kw):
+    def pricing_contact(self):
         return http.request.render('cap_customer_pricing.contact_us', {})
 
-    @http.route('/customer_pricing/results', type="http", auth='public', website=True)
-    def pricing_result(self, pricing_saved_id):
+    @http.route('/customer_pricing/results/<int:pricing_id', type="http", auth='public', website=True)
+    def pricing_result(self, pricing_id):
 
         return request.render('cap_customer_pricing.results', {
-            'pricing': pricing_saved_id
+            'pricing': pricing_id
         })
