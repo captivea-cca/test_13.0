@@ -48,5 +48,5 @@ class ClientPricingWeb(http.Controller):
     def pricing_result(self, pricing_id):
 
         return request.render('cap_customer_pricing.results', {
-            'pricing': pricing_id
+            'pricing': http.request.env['cap_customer_pricing.pricing'].browse(pricing_id)
         })
