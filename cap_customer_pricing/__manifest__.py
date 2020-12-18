@@ -3,7 +3,7 @@
     'name': "Cap Client Pricing app",
 
     'summary': """
-        Client pricing app and web page, estimates Odoo costs given
+        Customer pricing app and web page, estimates Odoo costs given
         by selected modules and number of users.""",
 
     'author': 'Captivea',
